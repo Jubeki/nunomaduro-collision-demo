@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aa33c4c9c59a25291445d8226153066",
+    "content-hash": "7ed422c9f827ab19e4fb9bb993fc264d",
     "packages": [
         {
             "name": "brick/math",
@@ -5608,17 +5608,11 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v6.2.1",
+            "version": "dev-add-multiline-support-for-warnings",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "5f058f7e39278b701e455b3c82ec5298cf001d89"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/5f058f7e39278b701e455b3c82ec5298cf001d89",
-                "reference": "5f058f7e39278b701e455b3c82ec5298cf001d89",
-                "shasum": ""
+                "url": "git@github.com:Jubeki/nunomaduro-collision.git",
+                "reference": "b8a66b0ffb688cc4565fa70a836bfa3eb29b9e6f"
             },
             "require": {
                 "facade/ignition-contracts": "^1.0.2",
@@ -5651,7 +5645,33 @@
                     "NunoMaduro\\Collision\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\Unit\\": "tests/Unit",
+                    "Tests\\FakeProgram\\": "tests/FakeProgram",
+                    "Tests\\": "tests/LaravelApp/tests",
+                    "App\\": "tests/LaravelApp/app/"
+                }
+            },
+            "scripts": {
+                "lint": [
+                    "pint -v"
+                ],
+                "test:lint": [
+                    "pint --test -v"
+                ],
+                "test:types": [
+                    "phpstan analyse --ansi"
+                ],
+                "test:unit": [
+                    "phpunit --colors=always"
+                ],
+                "test": [
+                    "@test:lint",
+                    "@test:types",
+                    "@test:unit"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -5678,21 +5698,7 @@
                 "issues": "https://github.com/nunomaduro/collision/issues",
                 "source": "https://github.com/nunomaduro/collision"
             },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2022-06-27T16:11:16+00:00"
+            "time": "2022-07-13T11:38:01+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7765,7 +7771,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "nunomaduro/collision": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
